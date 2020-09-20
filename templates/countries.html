@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container-country">
+
+  <h2 style="background-color: white">Country-Wise Statistics</h2>
+</div>
+{{case.type}}
+<div class="tables">
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Country</th>
+      <th scope="col">New Confirmed</th>
+      <th scope="col">New Recovered</th>
+      <th scope="col">New Death</th>
+      <th scope="col">Total Cases</th>
+      <th scope="col">Total Recovered</th>
+      <th scope="col">Total Death</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in case %}
+    <tr>
+      <th scope="row">{{item.Country}}</th>
+      <td>{{item.NewConfirmed}}</td>
+      <td>{{item.NewRecovered}}</td>
+      <td>{{item.NewDeaths}}</td>
+      <td>{{item.TotalConfirmed}}</td>
+      <td>{{item.TotalRecovered}}</td>
+      <td>{{item.TotalDeaths}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
