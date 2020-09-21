@@ -18,7 +18,7 @@
             <li class="items"><a href="{% url 'countries' %}">Browse Country-wise</a></li>
             <li class="items"><a href="">Chart</a></li>
             <li class="search">
-              <form action="" method="POST" action="{% url 'country' %}">
+              <form method="POST" action="{% url 'country' %}">
                 {% csrf_token %}
                 <input type="text" name="country" value="">
                 <input type="submit" name="" value="Search">
@@ -33,13 +33,13 @@
       </div>
     </header>
 
-    <div class="container-country">
+
 
       {% block content %}
 
 
       {% endblock %}
-    </div>
+
     <footer>
       <div class="bottom">
         <h4>This is the Webssite based on rest api of Corona Information site</h4>

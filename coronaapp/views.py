@@ -20,8 +20,13 @@ def country(request):
         country_name = country_name.capitalize()
         cases_request = requests.get("https://api.covid19api.com/summary").json()
         cases = cases_request['Countries']
-        return render(request, 'country_wise.html', {'cases':cases,'country_name':country_name})
+        for case in cases:
+            if case['Country'] == country_name:
+                return render(request, 'country_wise.html', {'country':case, 'country_name':country_name})
 
 
     else:
-        return render(request, 'country_wise.html', {'cases':cases})
+        return render(request, 'country_wise.html', {'country_name':country_name})
+
+
+    return render(request, 'country_wise.html', {})

@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for case in cases %}
-  {% if case.Country == country_name %}
+<div class="container-country">
+  {% if country %}
   <h2 style="background-color: white">Statistics</h2>
   <div class="tables">
     <table class="table">
@@ -20,18 +20,22 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{country_name}}</th>
-        <th>{{case.NewConfirmed}}</th>
-        <th>{{case.NewRecovered}}</th>
-        <th>{{case.NewDeaths}}</th>
-        <th>{{case.TotalConfirmed}}</th>
-        <th>{{case.TotalRecovered}}</th>
-        <th>{{case.TotalDeaths}}</th>
+        <th scope="row">{{country.Country}}</th>
+        <th>{{country.NewConfirmed}}</th>
+        <th>{{country.NewRecovered}}</th>
+        <th>{{country.NewDeaths}}</th>
+        <th>{{country.TotalConfirmed}}</th>
+        <th>{{country.TotalRecovered}}</th>
+        <th>{{country.TotalDeaths}}</th>
 
 
       </tr>
     </tbody>
   </table>
+  {% else %}
+  <h2 style="background-color: white">the country name: {{country_name}} you enter doesnot exists at all</h2>
+
     {% endif %}
-{% endfor %}
+</div>
+
 {% endblock %}
