@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/home/prazzwal/Desktop/Coronatimes/coronatimes/venv/bin/python3
+=======
+#!/home/kshitiz/CoronaUpdateRestApi/venv/bin/python3
+>>>>>>> 1d9b73c1a646c2ecf7cb9cbbcb7568fe59f9019e
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
