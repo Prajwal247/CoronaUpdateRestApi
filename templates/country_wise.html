@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for case in cases %}
+  {% if case.Country == country_name %}
+  <h2 style="background-color: white">Statistics</h2>
+  <div class="tables">
+    <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Country</th>
+        <th scope="col">New Confirmed</th>
+        <th scope="col">New Recovered</th>
+        <th scope="col">New Death</th>
+        <th scope="col">Total Cases</th>
+        <th scope="col">Total Recovered</th>
+        <th scope="col">Total Death</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{country_name}}</th>
+        <th>{{case.NewConfirmed}}</th>
+        <th>{{case.NewRecovered}}</th>
+        <th>{{case.NewDeaths}}</th>
+        <th>{{case.TotalConfirmed}}</th>
+        <th>{{case.TotalRecovered}}</th>
+        <th>{{case.TotalDeaths}}</th>
+
+
+      </tr>
+    </tbody>
+  </table>
+    {% endif %}
+{% endfor %}
+{% endblock %}

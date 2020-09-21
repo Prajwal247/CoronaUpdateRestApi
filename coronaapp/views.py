@@ -1,35 +1,27 @@
 from django.shortcuts import render
+import requests
+import json
 
 # Create your views here.
 def homepage(request):
-    import requests
-    import json
-
     cases_request = requests.get("https://api.covid19api.com/summary")
     case = json.loads(cases_request.content)
     return render(request, 'home.html', {'case':case})
 
 
-
-
-def example(request):
-    import requests
-    import json
-
-    cases_request = requests.get("https://api.covid19api.com/summary").json()
-    return render(request, 'example.html', {'case':cases_request})
-
 def countries(request):
-    import requests
-    import json
     cases_request = requests.get("https://api.covid19api.com/summary").json()
     return render(request, 'countries.html', {'case':cases_request['Countries']})
 
 
-def example2(request):
-    import requests
-    import json
-    # grab crpto price
-    price_request = requests.get("https://api.covid19api.com/summary")
-    price = json.loads(price_request.content)
-    return render(request, 'example2.html', {'price':price})
+def country(request):
+    if request.method == 'POST':
+        country_name = request.POST['country']
+        country_name = country_name.capitalize()
+        cases_request = requests.get("https://api.covid19api.com/summary").json()
+        cases = cases_request['Countries']
+        return render(request, 'country_wise.html', {'cases':cases,'country_name':country_name})
+
+
+    else:
+        return render(request, 'country_wise.html', {'cases':cases})
