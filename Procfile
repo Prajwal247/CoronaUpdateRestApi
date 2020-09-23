@@ -1,2 +1,2 @@
-web: gunicorn coronaapp.wsgi
+web: gunicorn CoronaUpdateRestApi.wsgi
 
