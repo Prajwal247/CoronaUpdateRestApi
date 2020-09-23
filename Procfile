@@ -1,2 +1,2 @@
-web: gunicorn coronatimes.wsgi
+web: gunicorn coronaapp.wsgi
 
