@@ -1,51 +1,56 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
-    <title>Corona Update</title>
-  </head>
-  <body>
-    <header>
-      <div class="navbar-top">
-        <div class="top">
-          <ul class="list_items">
-            <li class="items"><a href="{% url 'home' %}">Home</a></li>
-            <li class="items"><a href="">About</a></li>
-            <li class="items"><a href="{% url 'countries' %}">Browse Country-wise</a></li>
-            <li class="items"><a href="">Chart</a></li>
-            <li class="search">
-              <form method="POST" action="{% url 'country' %}">
-                {% csrf_token %}
-                <input type="text" name="country" value="">
-                <input type="submit" name="" value="Search">
 
-              </form>
-            </li>
-          </ul>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+  <title>Corona Update</title>
+</head>
+
+<body>
+  <header>
+    <div class="navbar-top">
+      <div class="top">
+        <ul class="list_items">
+          <li class="items"><a href="{% url 'home' %}">Home</a></li>
+          <li class="items"><a href="">About</a></li>
+          <li class="items"><a href="{% url 'countries' %}">Browse Country-wise</a></li>
+          <li class="items"><a href="">Chart</a></li>
+          <li class="search">
+            <form method="POST" action="{% url 'country' %}" class="form-inline my-2 my-lg-0">
+              {% csrf_token %}
+              <input type="text" name="country" class="form-control mr-sm-2" placeholder="Enter CountryName Here"
+                aria-label="Search">
+              <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search">
+
+            </form>
+          </li>
+        </ul>
       </div>
-      <div class="border-down">
+    </div>
+    <div class="border-down">
 
-      </div>
-    </header>
-
-
-
-      {% block content %}
+    </div>
+  </header>
 
 
-      {% endblock %}
 
-    <footer>
-      <div class="bottom">
-        <h4>This is the Webssite based on rest api of Corona Information site</h4>
-        <p>this is only for the test purpose</p>
-        <h3>We hereby are not associated with any commercial website</h3>
-      </div>
-    </footer>
-  </body>
+  {% block content %}
+
+
+  {% endblock %}
+
+  <footer>
+    <div class="bottom">
+      <h4>This is the Webssite based on rest api of Corona Information site</h4>
+      <p>this is only for the test purpose</p>
+      <h3>We hereby are not associated with any commercial website</h3>
+    </div>
+  </footer>
+</body>
+
 </html>
